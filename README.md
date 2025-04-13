@@ -30,41 +30,40 @@ Synapse est une application web interne sécurisée destinée aux scientifiques,
 ## Installation
 
 1. Clonez ce dépôt dans votre répertoire local :
-   ```bash
-   git clone https://github.com/votre-utilisateur/synapse.git
-   ```
-2. Installez les dépendances PHP :
-
     ```bash
-  cd synapse
-composer install
+    git clone https://github.com/votre-utilisateur/synapse.git
+    ```
+2. Installez les dépendances PHP :
+    ```bash
+    cd synapse
+    composer install
     ```
 3. Installez les dépendances JavaScript :
-```bash
+    ```bash
     npm install
-```
+    ```
 4. Créez et configurer votre fichier .env
 Modifiez les variables d'environnement pour la connexion à la base de données et autres configurations nécessaires.
 5. Générez la clé d'application Laravel :
-```bash
-php artisan key:generate
-```
+    ```bash
+    php artisan key:generate
+    ```
 6. Exécutez les migrations de la base de données :
-```bash
-php artisan migrate
-```
+    ```bash
+    php artisan migrate
+    ```
 7. Lancer le server en local :
-```bash
-php artisan serve
-```
+    ```bash
+    php artisan serve
+    ```
 8. Si vous utilisez des scripts Python, configurez l'API Python (FastAPI ou Flask) pour exécuter les fonctions scientifiques.
 
 ## Tests
 Les tests sont écrits en suivant la méthodologie TDD (Test Driven Development). Vous pouvez exécuter les tests de l'application à l'aide de la commande suivante :
 
-```bash
-php artisan test
-```
+    ```bash
+    php artisan test
+    ```
 Cela exécutera tous les tests définis dans le projet et vous fournira un retour détaillé sur l'état de chaque fonctionnalité.
 
 
