@@ -36,8 +36,8 @@ Synapse est une application web interne sécurisée destinée aux scientifiques,
 2. Installez les dépendances PHP :
 
     ```bash
-    Copier
-    Modifier
+  cd synapse
+composer install
     ```
 3. Installez les dépendances JavaScript :
 ```bash
@@ -51,8 +51,7 @@ php artisan key:generate
 ```
 6. Exécutez les migrations de la base de données :
 ```bash
-Copier
-Modifier
+php artisan migrate
 ```
 7. Lancer le server en local :
 ```bash
