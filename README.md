@@ -60,7 +60,6 @@ Modifiez les variables d'environnement pour la connexion à la base de données 
 
 ## Tests
 Les tests sont écrits en suivant la méthodologie TDD (Test Driven Development). Vous pouvez exécuter les tests de l'application à l'aide de la commande suivante :
-
     ```bash
     php artisan test
     ```
