@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\MagicLoginController;
+use App\Http\Controllers\Admin\AdminDashboardController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -24,4 +25,19 @@ Route::post('/login/magic', [MagicLoginController::class, 'sendToken'])
 Route::get('/login/magic/{token}', [MagicLoginController::class, 'loginWithToken'])->name('magic.login.token');
 
 // Import des routes liées à l'authentification
+
+// ROLE
+Route::middleware(['auth', 'role:Admin'])->prefix('admin')->name('admin.')->group(function () {
+    Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('dashboard');
+
+    Route::resource('/users', Admin\UserController::class);
+    Route::resource('/functions', Admin\FunctionController::class);
+    Route::get('/history', [Admin\HistoryController::class, 'index'])->name('history.index');
+});
+
+Route::middleware(['role:Scientist'])->group(function () {
+    // Routes accessibles uniquement aux scientifiques
+});
+
+
 require __DIR__ . '/auth.php';

@@ -30,7 +30,7 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $casts = [
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
-        'login_token_expiry' => 'datetime', // <-- c’est ce champ que tu as dans ta base
+        'login_token_expiry' => 'datetime',
     ];
 
     /**
