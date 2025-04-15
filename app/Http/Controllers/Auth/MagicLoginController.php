@@ -30,6 +30,13 @@ class MagicLoginController extends Controller
 
         $user = User::where('email', $request->email)->first();
 
+        // 🚫 Empêche les admins d'utiliser le Magic Login
+        if ($user && $user->hasRole('admin')) {
+            return redirect()->route('login')->withErrors([
+                'email' => 'Les administrateurs doivent se connecter avec le formulaire classique.',
+            ]);
+        }
+
         // Génère un token unique avec expiration
         $token = $user->generateLoginToken();
 
@@ -55,7 +62,7 @@ class MagicLoginController extends Controller
         // Connexion + suppression du token
         Auth::login($user);
         $user->login_token = null;
-        $user->login_token_expires_at = null;
+        $user->login_token_expiry = null;
         $user->save();
 
         return redirect()->route('dashboard');
